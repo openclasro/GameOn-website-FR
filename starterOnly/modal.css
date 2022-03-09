@@ -14,7 +14,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -170,6 +170,7 @@ main {
 }
 
 .content {
+  
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -195,10 +196,78 @@ label {
   display: inline-block;
   margin-bottom: 11px;
 }
+#errorPrenom{
+  font-size: 12px;
+
+}
+#errorNom{
+  font-size: 12px;
+}
+#errorNombre{
+  font-size: 12px;
+}
+#errorEmail{
+  font-size: 12px;
+}
+#errorDate{
+  font-size: 12px;
+}
+#errorChecked{
+  font-size: 12px;
+}
+#errorCheckBox{
+  font-size: 12px;
+}
+
+#loginform{
+  display: block;
+}
+
+
+#confirmModal{
+  display: none;
+  height: 70vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  text-align: center;
+}
+
+
+.msgValidation{
+    display: none;
+    margin: 0;
+    margin-bottom: 0;
+    padding: 0.5vw;
+    height: 400px;
+    color: #fff;
+    text-align: center;
+    padding-top: 200px;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+button {
+  display: none;
+  outline: none;
+  background: #fe142f;
+  
+  margin: 0 auto;
+  border-radius: 7px;
+  font-size: 1.3rem;
+  padding: 12px 63px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
+  
 }
 .text-control {
   margin: 0;
@@ -319,6 +388,31 @@ input[data-error]::after {
   transform: rotate(45deg);
 }
 .close:after {
+  transform: rotate(-45deg);
+}
+.closeBtn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.closeBtn:before,
+.closeBtn:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: #fff;
+}
+.closeBtn:before {
+  transform: rotate(45deg);
+}
+.closeBtn:after {
   transform: rotate(-45deg);
 }
 .btn-submit,

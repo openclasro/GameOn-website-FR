@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png" />
     </div>
     <div class="main-navbar">
       
@@ -27,8 +27,8 @@
         <i class="fa fa-bars"></i>
       </a>
     </div>
-    </div>
   </div>
+  
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -52,50 +52,59 @@
         </button>
       </div>
 
-      <div class="bground">
-        <div class="content">
+      <div class="bground" >
+        <div class="content " id="mainModal" >
           <span class="close"></span>
-          <div class="modal-body">
+          <div class="modal-body" >
             <form
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+         
+              id="loginform"
+              
+          
             >
               <div
                 class="formData">
-                <label>Prénom</label><br>
+                <label for="first">Prénom</label><br>
+                <span id="errorPrenom" class="non-valid"></span><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
+                  
                 /><br>
               </div>
               <div
                 class="formData">
-                <label>Nom</label><br>
+                <label for="last">Nom</label><br>
+                <span id="errorNom" class="non-valid"></span><br>
                 <input
+                 
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                
                 /><br>
               </div>
               <div
                 class="formData">
-                <label>E-mail</label><br>
+                <label for="email">E-mail</label><br>
+                <span id="errorEmail" class="non-valid"></span><br>
                 <input
                   class="text-control"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                 /><br>
               </div>
               <div
                 class="formData">
-                <label>Date de naissance</label><br>
+                <label for="birthdate">Date de naissance</label><br>
+                <span id="errorDate" class="non-valid"></span><br>
                 <input
                   class="text-control"
                   type="date"
@@ -105,12 +114,15 @@
               </div>
               <div
                 class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                <span id="errorNombre" class="non-valid"></span><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
+                id="radioCkeck"
                 class="formData">
+                <span id="errorChecked" class="non-valid"></span><br>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,14 +192,16 @@
               </div>
 
               <div
+                 id="conditionsCheckbox"
                 class="formData">
+                
                 <input
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
-                  checked
+                  
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -198,16 +212,23 @@
                   Je Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <span id="errorCheckBox" class="non-valid"></span><br>
+
               </div>
               <input
                 class="btn-submit"
                 type="submit"
-                class="button"
                 value="C'est parti"
+                
               />
             </form>
           </div>
         </div>
+          <div id="confirmModal" class="content" >
+            <span class="close"></span>
+            <p class="msgValidation">merci pour votre inscription</p>
+            <button class="btnClose">fermer</button>
+          </div>
       </div>
     </main>
     <footer>
