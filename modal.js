@@ -13,7 +13,11 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modalBtnClose = document.querySelectorAll(".close");
 
-
+const formValid = document.getElementById("loginform");
+  const msgValid = document.querySelector(".msgValidation");
+  const confirmModal = document.getElementById("confirmModal");
+  const mainModal = document.getElementById("mainModal")
+  const button = document.querySelector(".btnClose")
 
 
 // launch modal event
@@ -21,8 +25,13 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
+  formValid.style.display ="block";
+  mainModal.style.display = "block";
+  confirmModal.style.display ="none";
+  msgValid.style.display ="none";
+  button.style.display ="none";
   modalbg.style.display = "block";
-  //mainModal.style.display = "block";
+ 
 }
 
 //close modal event
@@ -35,7 +44,6 @@ function closeModal(){
 
 //close modal
 
-const confirmModal = document.querySelector(".btnClose");
 confirmModal.addEventListener("click",function(){
   
   modalbg.style.display ="none";
@@ -152,8 +160,7 @@ const validDate = function(inputDate){
       
   for ( i = 0; i <inputsRadio.length; i++) {
   if (inputsRadio[i].checked) {
-  errorChecked.innerHTML="ok";
-  errorChecked.style.color="green"
+  
   radioValid = true;
   }
        
@@ -208,28 +215,26 @@ form.birthdate.addEventListener("change",function(){
 form.quantity.addEventListener("change",function(){
   validNombre(this);
 });
-document.querySelector(".btn-submit").addEventListener("click",function(e){
-    
-  e.preventDefault();
+form.addEventListener("submit",function(e){
+  e.preventDefault();  
+ 
   // const nonValid = document.querySelectorAll(".non-valid")
-  const formValid = document.getElementById("loginform");
-  const msgValid = document.querySelector(".msgValidation");
-  const confirmModal = document.getElementById("confirmModal");
-  const mainModal = document.getElementById("mainModal")
-  const button = document.querySelector(".btnClose")
+  
 
   if(validPrenom(form.first)&& validNom(form.last)&& validEmail(form.email) &&
   validDate(form.birthdate) && validNombre(form.quantity)&&
-  validCheckBox()&& validInputRadio()){
+  validCheckBox()&& validInputRadio()) {
 
   formValid.style.display ="none";
   mainModal.style.display = "none";
   confirmModal.style.display ="block";
   msgValid.style.display ="block";
   button.style.display ="block";
+  form.reset();
          
 
   }
+  
       
   });
 
